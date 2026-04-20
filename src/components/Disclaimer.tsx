@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FiInfo, FiChevronUp, FiChevronDown } from "react-icons/fi";
 
 export default function Disclaimer() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="border border-[#B3CAFF] bg-[#F4F7FF] rounded-lg p-4 mb-6">
