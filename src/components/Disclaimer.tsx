@@ -1,47 +1,50 @@
 import { useState } from "react";
-import { FiInfo, FiChevronDown, FiChevronRight } from "react-icons/fi";
+import { FiInfo, FiChevronUp, FiChevronDown } from "react-icons/fi";
 
 export default function Disclaimer() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
-    <div className="border border-blue-200 bg-blue-50 rounded-xl p-4 mb-6">
-      
-      {/* Header */}
-      <div
-        className="flex justify-between items-center cursor-pointer"
+    <div className="border border-[#B3CAFF] bg-[#F4F7FF] rounded-lg p-4 mb-6">
+      {/* Header Row */}
+      <div 
+        className="flex items-center justify-between cursor-pointer" 
         onClick={() => setOpen(!open)}
       >
-        <div className="flex items-center gap-2">
-          <FiInfo className="text-blue-600" size={18} />
-          <p className="font-semibold text-blue-900">
+        <div className="flex items-center gap-3">
+          <FiInfo className="text-blue-600 flex-shrink-0" size={20} />
+          <span className="text-[#1B1E2D] font-bold text-sm">
             Important Notes & Disclaimers
-          </p>
+          </span>
         </div>
-
-        {/* Toggle icon */}
-        <span className="text-blue-700">
+        
+        <div className="flex-shrink-0 text-[#1B1E2D]">
           {open ? (
-            <FiChevronDown size={18} />
+            <FiChevronUp size={20} />
           ) : (
-            <FiChevronRight size={18} />
+            <FiChevronDown size={20} />
           )}
-        </span>
+        </div>
       </div>
 
       {/* Content */}
       {open && (
-        <ul className="mt-3 text-sm text-gray-700 list-disc ml-5 space-y-1">
+        <ul className="text-[13px] text-[#1B1E2D] list-disc ml-8 mt-3 space-y-1.5 font-medium">
           <li>
-            Tax-loss harvesting is currently not allowed under Indian tax
-            regulations.
+            Tax-loss harvesting is currently not allowed under Indian tax regulations. Please consult your tax advisor before making any decisions.
           </li>
-          <li>Tax harvesting does not apply to derivatives or futures.</li>
-          <li>Price and market value data is fetched from Coingecko.</li>
           <li>
-            Some countries do not have short-term / long-term bifurcation.
+            Tax harvesting does not apply to derivatives or futures. These are handled separately as business income under tax rules.
           </li>
-          <li>Only realized losses are considered.</li>
+          <li>
+            Price and market value data is fetched from Coingecko, not from individual exchanges. As a result, values may slightly differ from the ones on your exchange.
+          </li>
+          <li>
+            Some countries do not have a short-term / long-term bifurcation. For now, we are calculating everything as long-term.
+          </li>
+          <li>
+            Only realized losses are considered for harvesting. Unrealized losses in held assets are not counted.
+          </li>
         </ul>
       )}
     </div>
